@@ -1,0 +1,27 @@
+
+# include
+snippet inc
+	include ${1}
+
+# import
+snippet imp
+	import ${1}
+
+# function declaration
+snippet func
+	${1:func_name}: func (${2:parameters}) -> ${3:return_type} {
+		${4:/* code here */}
+	}
+
+# wrap function
+snippet wrap
+	${1:func_name}: extern(${2:c_func) func (${3:parameters}) -> ${4:return_type}
+
+snippet class
+
+	${1:`Filename('$1', 'name')`}: class ${2} {
+		/* methods */
+		${3}
+
+		/* members */
+	}

@@ -1,0 +1,130 @@
+# Added C++0x Features :)
+
+snippet oncepp
+	#ifndef ${1:`toupper(Filename('$1_HPP', 'UNTITLED_HPP'))`}
+	#define $1
+
+	${2}
+
+	#endif /* $1 */
+
+# const reference parameter
+snippet ref
+	const ${1:int}& ${2:value}
+
+# const move parameter
+snippet mov
+	const ${1:int}&& ${2:value}
+
+
+# delete member statement
+snippet rm
+	= delete${1}
+
+# Raw strings
+snippet raw
+	R"${1}"${2}
+
+# New Alias syntax
+snippet using
+	using ${1: typename} = ${2: type};
+
+# nullptr
+snippet null
+	nullptr${1}
+
+# template
+snippet template
+	template <typename ${1: T}>${2}
+
+#vararg template
+snippet vartemplate
+	template <typename ${1: T}, typename... ${2: VARGS}>${3}
+
+# auto assign
+snippet :=
+	auto ${1} = ${2};${3}
+
+# new function syntax
+snippet newfunc
+	auto ${1: function_name}$({2:void}) -> ${3:int}
+	{
+		${4:/* code */}
+	}
+
+# new method syntax
+snippet newmeth
+	auto ${1: `Filename('', 'class')`}::${3:method_name}(${4:void}) -> ${5:int}
+	{
+		${6:/* code */}
+	}
+
+# method
+snippet method
+	${1:void} ${2:`Filename('', 'class)`}::${3:method_name}(${4:void})
+	{
+		${5:/* code */}
+	}
+
+# lambda by reference
+snippet lamref
+	[&${1}](${2}) -> ${3:$2} { return ${4:/* code */}; }${5};
+
+# lambda by value
+snippet lamval
+	[${1:=}](${2}) -> ${3:$2} { return ${3:/* code */}; }${4};
+
+# empty lambda
+snippet lambda
+	[](${1}) -> ${2} { return ${3:/* code */}; }${4};
+
+# range based for loop
+snippet forr
+	for (${1:auto&} ${2:x} : ${3:container})
+	{
+		${4:/* code */}
+	}
+
+# enum class
+snippet ecl
+	enum class ${1:enumeration}
+	{
+		${2:/* data */}
+	};
+
+# ----------- Old ---------------
+
+# std::map
+snippet map
+	std::map<${1:key}, ${2:value}> ${3: map};
+# std::vector
+snippet vector
+	std::vector<${1:char}> ${2: v};
+# Namespace
+snippet ns
+	namespace ${1:`Filename('', 'my')`} {
+	${2}
+	} /* namespace $1 */
+# Class
+snippet cl
+	class ${1:`Filename('$1_t', 'name')`} 
+	{
+		public:
+			/* constructors and destructors */
+			explicit $1(const $1& copy);
+			explicit $1(${2:arguments});
+			virtual ~$1(void);
+
+			/* methods */
+			/* setters */
+			/* getters */
+			/* operators */
+
+		private:
+			${3:/* members */}
+	};
+snippet fori
+	for (size_t ${2:idx} = 0; $2 < ${1:count}; ${3:++}$@)
+	{
+		${4:/* code */}
+	}
